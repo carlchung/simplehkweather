@@ -4,6 +4,7 @@
     <dependencies>
         <deployment version="4112" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -32,7 +33,7 @@
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="°C" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vz5-hg-NMq">
                                 <rect key="frame" x="268" y="38" width="52" height="35"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="52" id="CXe-Um-qU0"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="52" id="CXe-Um-qU0"/>
                                     <constraint firstAttribute="height" constant="35" id="fwd-03-uTe"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="30"/>
@@ -48,6 +49,20 @@
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HCl-eJ-qzy">
+                                <rect key="frame" x="281" y="479" width="23" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="23" id="R41-Bf-7HM"/>
+                                    <constraint firstAttribute="height" constant="30" id="p49-tb-BGu"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title=" ">
+                                    <imageReference key="image" image="goforward" catalog="system" symbolScale="medium"/>
+                                </state>
+                                <connections>
+                                    <action selector="updateAction" destination="CZ4-MO-1fc" eventType="touchUpInside" id="hra-jI-SFH"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aW3-pO-7Rv">
                                 <rect key="frame" x="16" y="488" width="288" height="23"/>
                                 <constraints>
@@ -95,11 +110,14 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="vz5-hg-NMq" secondAttribute="trailing" id="42p-wa-MeK"/>
                             <constraint firstAttribute="trailingMargin" secondItem="IIn-7d-uqX" secondAttribute="trailing" constant="4" id="65K-0j-Uxx"/>
+                            <constraint firstItem="HCl-eJ-qzy" firstAttribute="trailing" secondItem="2VE-Yg-loa" secondAttribute="trailingMargin" id="7zW-Mh-VBa"/>
                             <constraint firstItem="ofR-4H-gag" firstAttribute="top" secondItem="Jho-4M-4q4" secondAttribute="bottom" constant="10" id="9UD-yO-ai1"/>
                             <constraint firstItem="eiu-dF-PYa" firstAttribute="centerX" secondItem="2VE-Yg-loa" secondAttribute="centerX" id="Apr-tv-C4g"/>
                             <constraint firstItem="ofR-4H-gag" firstAttribute="leading" secondItem="2VE-Yg-loa" secondAttribute="leadingMargin" constant="10" id="FPW-9U-KdR"/>
+                            <constraint firstItem="vz5-hg-NMq" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="2VE-Yg-loa" secondAttribute="leading" constant="20" symbolic="YES" id="ICp-oH-2rd"/>
                             <constraint firstItem="5qs-Yv-3uY" firstAttribute="leading" secondItem="2VE-Yg-loa" secondAttribute="leadingMargin" constant="4" id="Ki7-aR-aZu"/>
                             <constraint firstItem="Jho-4M-4q4" firstAttribute="centerX" secondItem="2VE-Yg-loa" secondAttribute="centerX" id="LlR-rs-6YR"/>
+                            <constraint firstItem="hIY-H2-AGQ" firstAttribute="top" secondItem="HCl-eJ-qzy" secondAttribute="bottom" constant="10" id="PWn-JO-rF8"/>
                             <constraint firstAttribute="trailing" secondItem="D4g-tt-xEV" secondAttribute="trailing" constant="16" id="ViK-Sd-nQB"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ofR-4H-gag" secondAttribute="trailing" constant="16" id="WJp-ee-GNf"/>
                             <constraint firstItem="vz5-hg-NMq" firstAttribute="top" secondItem="3ON-45-71m" secondAttribute="bottom" constant="38" id="ZDU-Uf-eyC"/>
@@ -116,9 +134,6 @@
                             <constraint firstItem="Jho-4M-4q4" firstAttribute="leading" secondItem="2VE-Yg-loa" secondAttribute="leadingMargin" constant="55" id="yZY-KU-Bc1"/>
                             <constraint firstAttribute="trailingMargin" secondItem="5qs-Yv-3uY" secondAttribute="trailing" constant="4" id="zWj-me-Zom"/>
                         </constraints>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="jVr-q3-yCc" appends="YES" id="OBI-UT-ajD"/>
-                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="NOW" image="tab_one.png" id="u1e-5L-l1D"/>
                     <connections>
@@ -132,13 +147,8 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qh2-T1-AhA" sceneMemberID="firstResponder"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="jVr-q3-yCc">
-                    <connections>
-                        <action selector="handlePan:" destination="CZ4-MO-1fc" id="dIM-ko-JMA"/>
-                    </connections>
-                </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="965.21739130434787" y="-618.08035714285711"/>
+            <point key="canvasLocation" x="963.75" y="-619.0140845070423"/>
         </scene>
         <!--Air Quality Index-->
         <scene sceneID="OOn-mc-EPB">
@@ -177,7 +187,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PsE-Oh-LoB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="978.26086956521749" y="916.74107142857133"/>
+            <point key="canvasLocation" x="1663" y="929"/>
         </scene>
         <!--Warning in Force-->
         <scene sceneID="ot8-2e-RuS">
@@ -209,6 +219,20 @@
                                 <color key="textColor" red="0.66666668653488159" green="0.66666668653488159" blue="0.66666668653488159" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lDp-RX-1c0">
+                                <rect key="frame" x="281" y="479" width="23" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="BIV-jx-Vdr"/>
+                                    <constraint firstAttribute="width" constant="23" id="DsY-tm-KyW"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title=" " image="goforward" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="medium"/>
+                                </state>
+                                <connections>
+                                    <action selector="updateAction" destination="QUy-BD-bpt" eventType="touchUpInside" id="72A-fQ-Fn1"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -218,11 +242,10 @@
                             <constraint firstItem="1Kf-Tj-cLD" firstAttribute="top" secondItem="gMD-aP-Fq6" secondAttribute="top" constant="29" id="Sws-IX-Nc1"/>
                             <constraint firstItem="9cj-jl-2y5" firstAttribute="top" secondItem="gMD-aP-Fq6" secondAttribute="top" constant="11" id="Ta7-S9-PEy"/>
                             <constraint firstItem="YSy-Yx-Gus" firstAttribute="top" secondItem="1Kf-Tj-cLD" secondAttribute="bottom" id="Whv-kb-E6M"/>
+                            <constraint firstItem="lDp-RX-1c0" firstAttribute="trailing" secondItem="gMD-aP-Fq6" secondAttribute="trailingMargin" id="XHK-cF-YCT"/>
+                            <constraint firstItem="YSy-Yx-Gus" firstAttribute="top" secondItem="lDp-RX-1c0" secondAttribute="bottom" constant="10" id="erP-m5-lIN"/>
                             <constraint firstItem="9cj-jl-2y5" firstAttribute="leading" secondItem="gMD-aP-Fq6" secondAttribute="leading" constant="10" id="onC-xN-GDJ"/>
                         </constraints>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="nwo-cd-KMv" appends="YES" id="zel-bN-uGR"/>
-                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="FORECAST" image="tab_three.png" id="Z7h-1E-pvt"/>
                     <connections>
@@ -231,11 +254,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3qq-4t-Ow8" sceneMemberID="firstResponder"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="nwo-cd-KMv">
-                    <connections>
-                        <action selector="handlePan:" destination="QUy-BD-bpt" id="vIC-sH-33g"/>
-                    </connections>
-                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="975" y="420.42253521126759"/>
         </scene>
@@ -275,7 +293,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f3h-9A-aEU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1374" y="-111"/>
+            <point key="canvasLocation" x="1581" y="-110"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Vex-rW-GRa">
@@ -300,6 +318,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="goforward" catalog="system" width="121" height="128"/>
         <image name="tab_four.png" width="30" height="30"/>
         <image name="tab_one.png" width="30" height="30"/>
         <image name="tab_three.png" width="30" height="30"/>

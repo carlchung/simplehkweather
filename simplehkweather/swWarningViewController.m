@@ -309,7 +309,12 @@
     // Dispose of any resources that can be recreated.
 }
 
-
+- (IBAction)updateAction {
+    self.textViewBig.text = @"";
+    self.lblRefresh.alpha = 0.0;
+    
+    [self loadForecastRSS];
+}
 
 - (IBAction)handlePan:(UIPanGestureRecognizer *)recognizer {
     

@@ -361,7 +361,21 @@
     return @"";
 }
 
+- (IBAction)updateAction {
+    self.lblTempDegree.text = @"";
+    self.lblHumidity.text = @"";
+    self.lblDesc.text= @"";
+    self.lblUpdateTime.text = LString(@"Loading. Please wait.", nil);
+    self.lblRefresh.alpha = 0.0;
+    
+    
+    swAppDelegate* appDelegate = (swAppDelegate*)[[UIApplication sharedApplication]delegate];
+    NSString *fontName = [appDelegate customFontName];
+    self.lblUpdateTime.font = [UIFont fontWithName:fontName size:15.0];
 
+    [self loadCurrentWeatherRSS];
+    
+}
 
 - (IBAction)handlePan:(UIPanGestureRecognizer *)recognizer {
     
