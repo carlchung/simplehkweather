@@ -95,8 +95,12 @@
                                             rangeForecast = [dataString rangeOfString:@"天氣預測:<br/>"];
                                             
                                             if ( rangeForecast.location == NSNotFound ) {
-                                                NSLog(@"FORCAST NOT FOUND");
-                                                return;
+                                                rangeForecast = [dataString rangeOfString:@"Weather forecast for Hong Kong"];
+                                                
+                                                if ( rangeForecast.location == NSNotFound ) {
+                                                    NSLog(@"FORCAST NOT FOUND");
+                                                    return;
+                                                }
                                             }
                                         }
                                     }

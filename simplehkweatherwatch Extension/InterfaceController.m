@@ -44,7 +44,7 @@
     [self invalidateUserActivity];
     [self updateUserActivity:@"com.metacreate.simplehkweather.mainpage" userInfo:dict webpageURL:nil];
     
-    [WKExtension sharedExtension].delegate = self;
+//    [WKExtension sharedExtension].delegate = self;
     
     [WKExtension.sharedExtension scheduleBackgroundRefreshWithPreferredDate:[NSDate dateWithTimeIntervalSinceNow:60*60] userInfo:nil scheduledCompletion:^(NSError * _Nullable error) {
         
@@ -622,10 +622,10 @@
 }
 
 - (void)refreshComplications {
-    CLKComplicationServer *server = [CLKComplicationServer sharedInstance];
-    for(CLKComplication *complication in server.activeComplications) {
-        [server reloadTimelineForComplication:complication];
-    }
+//    CLKComplicationServer *server = [CLKComplicationServer sharedInstance];
+//    for(CLKComplication *complication in server.activeComplications) {
+//        [server reloadTimelineForComplication:complication];
+//    }
 }
 
 @end
