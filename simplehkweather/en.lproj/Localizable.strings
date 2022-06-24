@@ -1,0 +1,106 @@
+/* 
+  Localizable.strings
+  simplehkweather
+
+  Created by carl on 8/2/14.
+  Copyright (c) 2014 carl. All rights reserved.
+*/
+
+"HKWeather"="HK Weather";
+
+"Loading. Please wait." = "Loading...Please wait";
+"Release to refresh" = "Release to refresh";
+
+// MENU
+"M_NOW" = "NOW";
+"M_7DAYS" = "9 DAYS";
+"M_WARNINGS" = "FORECAST";
+"M_AIR" = "AQHI";
+
+
+
+// NOW WEATHER
+"desc cloudy" = "Cloudy";
+"desc rain" = "Rain";
+"desc shower" = "Shower";
+"desc sunny interval" = "Sunny intervals";
+"desc fine" = "Fine";
+"desc sunny" = "Sunny";
+"desc bright" = "Sunny";
+
+"desc thunderstorm" = "Thunderstorm";
+
+"RH" = "RH";
+"UV" = "UV";
+
+// 7 DAYS
+"Date" = "Date";
+"min-max temp" = "min-max temp";
+
+"Monday" = "M";
+"Tuesday" = "T";
+"Wednesday" = "W";
+"Thursday" = "T";
+"Friday" = "F";
+"Saturday" = "S";
+"Sunday" = "S";
+
+
+// Forecase
+"Local Weather Forecast" = "Local Weather Forecast";
+
+// WARNING
+"Current warning" = "Current warning";
+"No warning in force" = "Everything is normal. Enjoy your day!";
+"Typhoon Signal No. 1" = "Typhoon Signal No. 1\n";
+"Typhoon Signal No. 3" = "Typhoon Signal No. 3\n";
+"Typhoon Signal No. 8" = "Typhoon Signal No. 8\n";
+"Typhoon Signal No. 9" = "Typhoon Signal No. 9\n";
+"Typhoon Signal No. 10" = "Typhoon Signal No. 10\n";
+
+"Amber Rainstorm Warning Signal"    = "Amber Rainstorm Warning Signal\n";
+"Red Rainstorm Warning Signal"      = "Red Rainstorm Warning Signal\n";
+"Black Rainstorm Warning Signal"    = "Black Rainstorm Warning Signal\n";
+"Thunderstorm Warning"  = "Thunderstorm Warning\n";
+"Special Announcement On Flooding In Northern New Territories" = "Special Announcement On Flooding In Northern New Territories\n";
+"Landslip Warning" = "Landslip Warning\n";
+"Strong Monsoon Signal" = "Strong Monsoon Signal\n";
+
+"Frost Warning" = "Frost Warning\n";
+"Yellow Fire Danger Warning" = "Yellow Fire Danger Warning\n";
+"Red Fire Danger Warning" = "Red Fire Danger Warning\n";
+"Cold Weather Warning" = "Cold Weather Warning\n";
+"Very Hot Weather Warning" = "Very Hot Weather Warning\n";
+"Tsunami Warning" = "Tsunami Warning\n";
+
+// AIR QUALITY
+
+"General Stations" = "General Stations";
+"Roadside Stations" = "Roadside Stations";
+"Health Risk" = "Health Risk";
+"Low" = "Low";
+"Moderate" = "Moderate";
+"High" = "High";
+"to" = "to";
+"index" = "Index";
+
+// AIR QUALITY PLACE
+"Central/Western"="Central/Western";
+"Eastern"="Eastern";
+"Kwun Tong"="Kwun Tong";
+"Sham Shui Po"="Sham Shui Po";
+"Kwai Chung"="Kwai Chung";
+"Tsuen Wan"="Tsuen Wan";
+"Tseung Kwan O"="Tseung Kwan O";
+"Yuen Long"="Yuen Long";
+"Tuen Mun"="Tuen Mun";
+"Tung Chung"="Tung Chung";
+"Tai Po"="Tai Po";
+"Sha Tin"="Sha Tin";
+"Tap Mun"="Tap Mun";
+"Causeway Bay"="Causeway Bay";
+"Central"="Central";
+"Mong Kok"="Mong Kok";
+
+
+

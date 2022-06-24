@@ -1,0 +1,45 @@
+/* 
+  Localizable.strings
+  simplehkweather
+
+  Created by carl on 1/8/15.
+  Copyright (c) 2015 carl. All rights reserved.
+*/
+
+
+// NOW WEATHER
+"desc cloudy" = "Cloudy";
+"desc rain" = "Rain";
+"desc shower" = "Shower";
+"desc sunny interval" = "Sunny intervals";
+"desc fine" = "Fine";
+"desc sunny" = "Sunny";
+"desc bright" = "Sunny";
+
+"desc thunderstorm" = "Thunderstorm";
+
+
+
+// WARNING
+"Current warning" = "Current warning";
+"No warning in force" = "Everything is normal. Enjoy your day!";
+"Typhoon Signal No. 1" = "Typhoon Signal No. 1\n";
+"Typhoon Signal No. 3" = "Typhoon Signal No. 3\n";
+"Typhoon Signal No. 8" = "Typhoon Signal No. 8\n";
+"Typhoon Signal No. 9" = "Typhoon Signal No. 9\n";
+"Typhoon Signal No. 10" = "Typhoon Signal No. 10\n";
+
+"Amber Rainstorm Warning Signal"    = "Amber Rainstorm Warning Signal\n";
+"Red Rainstorm Warning Signal"      = "Red Rainstorm Warning Signal\n";
+"Black Rainstorm Warning Signal"    = "Black Rainstorm Warning Signal\n";
+"Thunderstorm Warning"  = "Thunderstorm Warning\n";
+"Special Announcement On Flooding In Northern New Territories" = "Special Announcement On Flooding In Northern New Territories\n";
+"Landslip Warning" = "Landslip Warning\n";
+"Strong Monsoon Signal" = "Strong Monsoon Signal\n";
+
+"Frost Warning" = "Frost Warning\n";
+"Yellow Fire Danger Warning" = "Yellow Fire Danger Warning\n";
+"Red Fire Danger Warning" = "Red Fire Danger Warning\n";
+"Cold Weather Warning" = "Cold Weather Warning\n";
+"Very Hot Weather Warning" = "Very Hot Weather Warning\n";
+"Tsunami Warning" = "Tsunami Warning\n";

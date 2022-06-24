@@ -1,0 +1,73 @@
+/*
+ WatchLocalizable.strings
+ simplehkweather
+ 
+ Created by carl on 25/4/15.
+ Copyright (c) 2015 carl. All rights reserved.
+ */
+// NOW WEATHER
+
+"HKWeather"="香港天氣";
+
+"desc cloudy" = "多雲";
+"desc rain" = "有雨";
+"desc shower" = "驟雨";
+"desc sunny interval" = "間中有陽光";
+"desc fine" = "天晴";
+"desc sunny" = "陽光";
+"desc bright" = "天色明朗";
+
+"desc thunderstorm" = "雷暴";
+// 7 DAYS
+"Date" = "Date";
+"min-max temp" = "min-max temp";
+
+"Monday" = "一";
+"Tuesday" = "二";
+"Wednesday" = "三";
+"Thursday" = "四";
+"Friday" = "五";
+"Saturday" = "六";
+"Sunday" = "日";
+
+// WARNING
+
+"Current warning" = "現時天氣警告";
+
+"No warning in force" = "";
+"Typhoon Signal No. 1" = "一號戒備信號";
+"Typhoon Signal No. 3" = "三號強風信號";
+"Typhoon Signal No. 8" = "八號東南/西南/東北/西北烈風或暴風信號";
+"Typhoon Signal No. 9" = "九號烈風或暴風風力增強信號";
+"Typhoon Signal No. 10" = "十號颶風信號";
+
+"Amber Rainstorm Warning Signal"    = "黃色暴雨警告信號";
+"Red Rainstorm Warning Signal"      = "紅色暴雨警告信號";
+"Black Rainstorm Warning Signal"    = "黑色暴雨警告信號";
+"Thunderstorm Warning"  = "雷暴警告";
+"Special Announcement On Flooding In Northern New Territories" = "新界北部水浸特別報告";
+"Landslip Warning" = "山泥傾瀉警告";
+"Strong Monsoon Signal" = "強烈季候風信號";
+
+"Frost Warning" = "霜凍警告";
+"Yellow Fire Danger Warning" = "黃色火災危險警告";
+"Red Fire Danger Warning" = "紅色火災危險警告";
+"Cold Weather Warning" = "寒冷天氣警告";
+"Very Hot Weather Warning" = "酷熱天氣警告";
+"Tsunami Warning" = "海嘯警告";
+
+
+// AIR QUALITY
+
+"General Stations" = "一般監測站";
+"Roadside Stations" = "路邊監測站";
+"Health Risk" = "健康風險";
+"Low" = "低";
+"Moderate" = "中";
+"High" = "高";
+"to" = "至";
+
+"index" = "指數";
+
+
+

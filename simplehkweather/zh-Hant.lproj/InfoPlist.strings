@@ -1,0 +1,5 @@
+/* Localized versions of Info.plist keys */
+
+/* Localized version of app name */
+CFBundleDisplayName = "香港簡明天氣";
+CFBundleName = "香港簡明天氣";

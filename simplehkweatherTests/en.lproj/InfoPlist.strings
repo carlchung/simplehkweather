@@ -1,0 +1,6 @@
+/* Localized versions of Info.plist keys */
+/*  English */
+
+
+"Loading. Please wait." = @"Loading...Please wait";
+

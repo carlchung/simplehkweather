@@ -1,0 +1,110 @@
+/*
+ Localizable.strings
+ simplehkweather
+ 
+ Created by carl on 8/2/14.
+ Copyright (c) 2014 carl. All rights reserved.
+ */
+
+"HKWeather"="香港天氣";
+
+"Loading. Please wait." = "下載中...請等一等";
+"Release to refresh" = "放開拖拉更新";
+
+// MENU
+"M_NOW" = "即時氣溫";
+"M_7DAYS" = "九天預報";
+"M_WARNINGS" = "天氣預報";
+"M_AIR" = "污染指數";
+
+
+// NOW WEATHER
+
+"desc cloudy" = "多雲";
+"desc rain" = "有雨";
+"desc shower" = "驟雨";
+"desc sunny interval" = "間中有陽光";
+"desc fine" = "天晴";
+"desc sunny" = "陽光";
+"desc bright" = "天色明朗";
+
+"desc thunderstorm" = "雷暴";
+
+"RH" = "相對濕度";
+"UV" = "紫外線指數";
+
+// 7 DAYS
+"Date" = "日/月";
+"min-max temp" = "低溫－高溫";
+
+"Monday" = "一";
+"Tuesday" = "二";
+"Wednesday" = "三";
+"Thursday" = "四";
+"Friday" = "五";
+"Saturday" = "六";
+"Sunday" = "日";
+
+
+// Forecase
+"Local Weather Forecast" = "本港地區今日天氣預測";
+
+
+// WARNING
+
+"Current warning" = "現時天氣警告";
+
+"No warning in force" = "天氣正常無警告";
+"Typhoon Signal No. 1" = "一號戒備信號\n";
+"Typhoon Signal No. 3" = "三號強風信號\n";
+"Typhoon Signal No. 8" = "八號東南/西南/東北/西北烈風或暴風信號\n";
+"Typhoon Signal No. 9" = "九號烈風或暴風風力增強信號\n";
+"Typhoon Signal No. 10" = "十號颶風信號\n";
+
+"Amber Rainstorm Warning Signal"    = "黃色暴雨警告信號\n";
+"Red Rainstorm Warning Signal"      = "紅色暴雨警告信號\n";
+"Black Rainstorm Warning Signal"    = "黑色暴雨警告信號\n";
+"Thunderstorm Warning"  = "雷暴警告\n";
+"Special Announcement On Flooding In Northern New Territories" = "新界北部水浸特別報告\n";
+"Landslip Warning" = "山泥傾瀉警告\n";
+"Strong Monsoon Signal" = "強烈季候風信號\n";
+
+"Frost Warning" = "霜凍警告\n";
+"Yellow Fire Danger Warning" = "黃色火災危險警告\n";
+"Red Fire Danger Warning" = "紅色火災危險警告\n";
+"Cold Weather Warning" = "寒冷天氣警告\n";
+"Very Hot Weather Warning" = "酷熱天氣警告\n";
+"Tsunami Warning" = "海嘯警告\n";
+
+
+// AIR QUALITY
+
+"General Stations" = "一般監測站";
+"Roadside Stations" = "路邊監測站";
+"Health Risk" = "健康風險";
+"Low" = "低";
+"Moderate" = "中";
+"High" = "高";
+"to" = "至";
+"index" = "指數";
+
+// AIR QUALITY PLACE
+"Central/Western"="中西區";
+"Eastern"="東區";
+"Kwun Tong"="觀塘";
+"Sham Shui Po"="深水埗";
+"Kwai Chung"="葵涌";
+"Tsuen Wan"="荃灣";
+"Tseung Kwan O"="將軍澳";
+"Yuen Long"="元朗";
+"Tuen Mun"="屯門";
+"Tung Chung"="東涌";
+"Tai Po"="大埔";
+"Sha Tin"="沙田";
+"Tap Mun"="塔門";
+"Causeway Bay"="銅鑼灣";
+"Central"="中環";
+"Mong Kok"="旺角";
+
+
+

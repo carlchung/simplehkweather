@@ -1,0 +1,71 @@
+/*
+ WatchLocalizable.strings
+ simplehkweather
+ 
+ Created by carl on 25/4/15.
+ Copyright (c) 2015 carl. All rights reserved.
+ */
+
+// NOW WEATHER
+"HKWeather"="HK Weather";
+
+"desc cloudy" = "Cloudy";
+"desc rain" = "Rain";
+"desc shower" = "Shower";
+"desc sunny interval" = "Sunny intervals";
+"desc fine" = "Fine";
+"desc sunny" = "Sunny";
+"desc bright" = "Sunny";
+
+"desc thunderstorm" = "Thunderstorm";
+
+
+// 7 DAYS
+"Date" = "Date";
+"min-max temp" = "min-max temp";
+
+"Monday" = "MON";
+"Tuesday" = "TUE";
+"Wednesday" = "WED";
+"Thursday" = "THU";
+"Friday" = "FRI";
+"Saturday" = "SAT";
+"Sunday" = "SUN";
+
+
+// WARNING
+"Current warning" = "Current warning";
+"No warning in force" = "";
+"Typhoon Signal No. 1" = "Typhoon Signal No. 1";
+"Typhoon Signal No. 3" = "Typhoon Signal No. 3";
+"Typhoon Signal No. 8" = "Typhoon Signal No. 8";
+"Typhoon Signal No. 9" = "Typhoon Signal No. 9";
+"Typhoon Signal No. 10" = "Typhoon Signal No. 10";
+
+"Amber Rainstorm Warning Signal"    = "Amber Rainstorm Warning Signal";
+"Red Rainstorm Warning Signal"      = "Red Rainstorm Warning Signal";
+"Black Rainstorm Warning Signal"    = "Black Rainstorm Warning Signal";
+"Thunderstorm Warning"  = "Thunderstorm Warning";
+"Special Announcement On Flooding In Northern New Territories" = "Special Announcement On Flooding In Northern New Territories";
+"Landslip Warning" = "Landslip Warning";
+"Strong Monsoon Signal" = "Strong Monsoon Signal";
+
+"Frost Warning" = "Frost Warning";
+"Yellow Fire Danger Warning" = "Yellow Fire Danger Warning";
+"Red Fire Danger Warning" = "Red Fire Danger Warning";
+"Cold Weather Warning" = "Cold Weather Warning";
+"Very Hot Weather Warning" = "Very Hot Weather Warning";
+"Tsunami Warning" = "Tsunami Warning";
+
+
+// AIR QUALITY
+
+"General Stations" = "General Stations";
+"Roadside Stations" = "Roadside Stations";
+"Health Risk" = "Risk";
+"Low" = "Low";
+"Moderate" = "Moderate";
+"High" = "High";
+"to" = "to";
+"index" = "Index";
+
