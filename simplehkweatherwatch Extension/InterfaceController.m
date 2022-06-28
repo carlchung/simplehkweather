@@ -7,6 +7,7 @@
 //
 
 #import "InterfaceController.h"
+#import <ClockKit/ClockKit.h>
 
 #define kRSS_URL_CurrentWeather @"http://rss.weather.gov.hk/rss/CurrentWeather.xml"
 #define kRSS_URL_LocalWeatherForecast @"http://rss.weather.gov.hk/rss/LocalWeatherForecast.xml"
@@ -39,23 +40,24 @@
     // This method is called when watch view controller is about to be visible to user
     [super willActivate];
     [self loadCurrentWeatherRSS];
-    NSDictionary *dict = @{@"page":@"main"};
+//    NSDictionary *dict = @{@"page":@"main"};
     
     [self invalidateUserActivity];
-    [self updateUserActivity:@"com.metacreate.simplehkweather.mainpage" userInfo:dict webpageURL:nil];
-    
+//    [self updateUserActivity:@"com.metacreate.simplehkweather.mainpage" userInfo:dict webpageURL:nil];
+    NSUserActivity *userActivity = [[NSUserActivity alloc] initWithActivityType: @"com.metacreate.simplehkweather.mainpage"];
+    userActivity.userInfo = @{@"page":@"main"};
+    [self updateUserActivity: userActivity];
 //    [WKExtension sharedExtension].delegate = self;
-    
-    [WKExtension.sharedExtension scheduleBackgroundRefreshWithPreferredDate:[NSDate dateWithTimeIntervalSinceNow:60*60] userInfo:nil scheduledCompletion:^(NSError * _Nullable error) {
-        
-        if(error == nil) {
-            NSLog(@"background refresh task re-scheduling successfuly  ");
-            
-        } else{
-            
-            NSLog(@"Error occurred while re-scheduling background refresh: %@",error.localizedDescription);
-        }
-    }];
+//    [WKExtension.sharedExtension scheduleBackgroundRefreshWithPreferredDate:[NSDate dateWithTimeIntervalSinceNow:60*60] userInfo:nil scheduledCompletion:^(NSError * _Nullable error) {
+//        
+//        if(error == nil) {
+//            NSLog(@"background refresh task re-scheduling successfuly  ");
+//            
+//        } else{
+//            
+//            NSLog(@"Error occurred while re-scheduling background refresh: %@",error.localizedDescription);
+//        }
+//    }];
     
     NSUserDefaults *userdefault = [NSUserDefaults standardUserDefaults];
     NSString *strTempDefault = [userdefault objectForKey:@"tempDegree"];
@@ -396,12 +398,13 @@
                                         }
                                         self.labelWarning.text = strLongText;
                                         
-                                        NSDate *now = [NSDate date];
-                                        [[WKExtension sharedExtension] scheduleSnapshotRefreshWithPreferredDate:now userInfo:nil scheduledCompletion:^(NSError *error) {
-                                            if (error != nil) {
-                                                NSLog(@"scheduleSnapshotRefreshWithPreferredDate return error %@", error);
-                                            }
-                                        }];
+//                                        NSDate *now = [NSDate date];
+                                
+//                                        [[WKExtension sharedExtension] scheduleSnapshotRefreshWithPreferredDate:now userInfo:nil scheduledCompletion:^(NSError *error) {
+//                                            if (error != nil) {
+//                                                NSLog(@"scheduleSnapshotRefreshWithPreferredDate return error %@", error);
+//                                            }
+//                                        }];
                                         [self refreshComplications];
                                         
                                     }] resume];
@@ -500,7 +503,7 @@
             
         } else if ([task isKindOfClass:[WKWatchConnectivityRefreshBackgroundTask class]]) {
             WKWatchConnectivityRefreshBackgroundTask *backgroundTask = (WKWatchConnectivityRefreshBackgroundTask*)task;
-            [backgroundTask setTaskCompleted];
+            [backgroundTask setTaskCompletedWithSnapshot: YES];
             
         } else if ([task isKindOfClass:[WKURLSessionRefreshBackgroundTask class]]) {
             WKURLSessionRefreshBackgroundTask *urlSessionBackgroundTask = (WKURLSessionRefreshBackgroundTask*)task;
@@ -512,10 +515,11 @@
             //let backgroundSession = URLSession(configuration: backgroundConfigObject, delegate: self, delegateQueue: nil)
             //print("Rejoining session ", backgroundSession)
             
-            [urlSessionBackgroundTask setTaskCompleted];
+            
+            [urlSessionBackgroundTask setTaskCompletedWithSnapshot: YES];
             
         } else {
-            [task setTaskCompleted];
+            [task setTaskCompletedWithSnapshot: NO];
         }
     }
 }
@@ -615,17 +619,17 @@
         
         [self.responsesData removeObjectForKey:@(task.taskIdentifier)];
         [self refreshComplications];
-        [savedTask setTaskCompleted];
+        [savedTask setTaskCompletedWithSnapshot: YES];
     } else {
         NSLog(@"responseData is nil");
     }
 }
 
 - (void)refreshComplications {
-//    CLKComplicationServer *server = [CLKComplicationServer sharedInstance];
-//    for(CLKComplication *complication in server.activeComplications) {
-//        [server reloadTimelineForComplication:complication];
-//    }
+    CLKComplicationServer *server = [CLKComplicationServer sharedInstance];
+    for(CLKComplication *complication in server.activeComplications) {
+        [server reloadTimelineForComplication:complication];
+    }
 }
 
 @end

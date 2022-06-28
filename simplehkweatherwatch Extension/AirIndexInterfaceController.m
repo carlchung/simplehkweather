@@ -45,7 +45,7 @@
     
     [self invalidateUserActivity];
     NSDictionary *dict = @{@"page":@"airindex"};
-    [self updateUserActivity:@"com.metacreate.simplehkweather.airindex" userInfo:dict webpageURL:nil];
+//    [self updateUserActivity:@"com.metacreate.simplehkweather.airindex" userInfo:dict webpageURL:nil];
 
 }
 

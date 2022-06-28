@@ -9,8 +9,8 @@
 #import "swAirQualityViewController.h"
 #import "swAppDelegate.h"
 #define kRSS_URL_aqhirss @"http://www.aqhi.gov.hk/epd/ddata/html/out/aqhirss_Eng.xml"
-#define kURL_aqhiXML @"https://www.aqhi.gov.hk/mobile/gt6217.html?device=xhtml"
-#define kURL_aqhiXML_zh_hk @"https://www.aqhi.gov.hk/mobile/gt6217.html?device=xhtml" //@"http://www.aqhi.gov.hk/mobile/tc6217.html?device=xhtml"
+#define kURL_aqhiXML @"http://www.aqhi.gov.hk/mobile/gt6217.html?device=xhtml"
+#define kURL_aqhiXML_zh_hk @"http://www.aqhi.gov.hk/mobile/gt6217.html?device=xhtml" //@"http://www.aqhi.gov.hk/mobile/tc6217.html?device=xhtml"
 
 @interface swAirQualityViewController ()
 

@@ -40,7 +40,7 @@
     NSDictionary *dict = @{@"page":@"9day"};
     
     [self invalidateUserActivity];
-    [self updateUserActivity:@"com.metacreate.simplehkweather.9day" userInfo:dict webpageURL:nil];
+//    [self updateUserActivity:@"com.metacreate.simplehkweather.9day" userInfo:dict webpageURL:nil];
     
     [self loadCurrentWeatherRSS];
 }
