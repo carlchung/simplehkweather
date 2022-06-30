@@ -18,13 +18,13 @@
     NSString *strForecast;
     NSString *Desc;
     
-    WKRefreshBackgroundTask *savedTask;
+//    WKRefreshBackgroundTask *savedTask;
     
 }
 
 
-@property (nonatomic,strong) NSMutableDictionary* dictMoreInfo;
-@property (nonatomic,strong) NSMutableDictionary *responsesData;
+//@property (nonatomic,strong) NSMutableDictionary* dictMoreInfo;
+//@property (nonatomic,strong) NSMutableDictionary *responsesData;
 //@property (weak, nonatomic) IBOutlet WKInterfaceButton *btnMore;
 @property (weak, nonatomic) IBOutlet WKInterfaceLabel *labelDegree;
 

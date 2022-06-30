@@ -16,71 +16,71 @@
 @end
 
 @implementation ComplicationController
-
--(void)callAPI {
-    NSURLSession *session = [NSURLSession sharedSession];
-    [[session dataTaskWithURL:[NSURL URLWithString:kRSS_URL_CurrentWeather]
-            completionHandler:^(NSData *data,
-                                NSURLResponse *response,
-                                NSError *error) {
-                // handle response
-                //
-                NSString *dataString = [[NSString alloc] initWithData: data  encoding:NSUTF8StringEncoding];
-
-                //NSLog(@"requestedUpdateDidBegin Complication:\n%@",dataString);
-                //NSLog(@"error %@", [error description]);
-
-                NSRange rangeAirTemp = [dataString rangeOfString:@"Air temperature : "];
-
-                if ( rangeAirTemp.location == NSNotFound ) {
-                    return;
-                } else {
-                    NSRange rangeAirTempNum = { rangeAirTemp.location + rangeAirTemp.length, 2};
-                    self.tempDegree = [dataString substringWithRange: rangeAirTempNum];
-                    self.tempDegree = [self.tempDegree stringByAppendingString:@"°C"];
-                }
-
-                NSLog(@"requestedUpdateDidBegin Complication:\n%@",self.tempDegree);
-
-                //
-                [[session dataTaskWithURL:[NSURL URLWithString:kRSS_URL_LocalWeatherForecast]
-                        completionHandler:^(NSData *data,
-                                            NSURLResponse *response,
-                                            NSError *error) {
-                            
-                            NSString *dataString = [[NSString alloc] initWithData: data  encoding:NSUTF8StringEncoding];
-                            
-                            NSLog(@"requestedUpdateDidBegin Complication 2 :\n%@",dataString);
-                            
-                            //
-                            NSRange rangeForecast = [dataString rangeOfString:@"Weather forecast for this afternoon and tonight:<br/>"];
-                            
-                            if ( rangeForecast.location == NSNotFound ) {
-                                rangeForecast = [dataString rangeOfString:@"Weather forecast for tonight and tomorrow:<br/>"];
-                                
-                                if ( rangeForecast.location == NSNotFound ) {
-                                    rangeForecast = [dataString rangeOfString:@":<br/>"];
-                                    if ( rangeForecast.location == NSNotFound ) {
-                                        NSLog(@"FORCAST NOT FOUND");
-                                        return;
-                                    }
-                                }
-                            }
-                            
-                            long rangeLength = dataString.length - (rangeForecast.location + rangeForecast.length) - 5;
-                            
-                            NSRange rangeForecastText = { rangeForecast.location + rangeForecast.length, rangeLength};
-                            NSString *strForecast = [dataString substringWithRange: rangeForecastText];
-                            self.weatherDesc = [[NSBundle mainBundle] localizedStringForKey:[self detectWeatherType:strForecast] value:@"" table:nil];
-                            
-                            
-                        }] resume];
-
-            }] resume];
-
-
-    
-}
+//
+//-(void)callAPI {
+//    NSURLSession *session = [NSURLSession sharedSession];
+//    [[session dataTaskWithURL:[NSURL URLWithString:kRSS_URL_CurrentWeather]
+//            completionHandler:^(NSData *data,
+//                                NSURLResponse *response,
+//                                NSError *error) {
+//                // handle response
+//                //
+//                NSString *dataString = [[NSString alloc] initWithData: data  encoding:NSUTF8StringEncoding];
+//
+//                //NSLog(@"requestedUpdateDidBegin Complication:\n%@",dataString);
+//                //NSLog(@"error %@", [error description]);
+//
+//                NSRange rangeAirTemp = [dataString rangeOfString:@"Air temperature : "];
+//
+//                if ( rangeAirTemp.location == NSNotFound ) {
+//                    return;
+//                } else {
+//                    NSRange rangeAirTempNum = { rangeAirTemp.location + rangeAirTemp.length, 2};
+//                    self.tempDegree = [dataString substringWithRange: rangeAirTempNum];
+//                    self.tempDegree = [self.tempDegree stringByAppendingString:@"°C"];
+//                }
+//
+//                NSLog(@"requestedUpdateDidBegin Complication:\n%@",self.tempDegree);
+//
+//                //
+//                [[session dataTaskWithURL:[NSURL URLWithString:kRSS_URL_LocalWeatherForecast]
+//                        completionHandler:^(NSData *data,
+//                                            NSURLResponse *response,
+//                                            NSError *error) {
+//                            
+//                            NSString *dataString = [[NSString alloc] initWithData: data  encoding:NSUTF8StringEncoding];
+//                            
+//                            NSLog(@"requestedUpdateDidBegin Complication 2 :\n%@",dataString);
+//                            
+//                            //
+//                            NSRange rangeForecast = [dataString rangeOfString:@"Weather forecast for this afternoon and tonight:<br/>"];
+//                            
+//                            if ( rangeForecast.location == NSNotFound ) {
+//                                rangeForecast = [dataString rangeOfString:@"Weather forecast for tonight and tomorrow:<br/>"];
+//                                
+//                                if ( rangeForecast.location == NSNotFound ) {
+//                                    rangeForecast = [dataString rangeOfString:@":<br/>"];
+//                                    if ( rangeForecast.location == NSNotFound ) {
+//                                        NSLog(@"FORCAST NOT FOUND");
+//                                        return;
+//                                    }
+//                                }
+//                            }
+//                            
+//                            long rangeLength = dataString.length - (rangeForecast.location + rangeForecast.length) - 5;
+//                            
+//                            NSRange rangeForecastText = { rangeForecast.location + rangeForecast.length, rangeLength};
+//                            NSString *strForecast = [dataString substringWithRange: rangeForecastText];
+//                            self.weatherDesc = [[NSBundle mainBundle] localizedStringForKey:[self detectWeatherType:strForecast] value:@"" table:nil];
+//                            
+//                            
+//                        }] resume];
+//
+//            }] resume];
+//
+//
+//    
+//}
 
 //- (void)requestedUpdateDidBegin {
 //

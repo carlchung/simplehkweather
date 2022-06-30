@@ -30,7 +30,7 @@
     
     // Configure interface objects here.
 
-    self.dictMoreInfo = [[NSMutableDictionary alloc] initWithCapacity:0];
+//    self.dictMoreInfo = [[NSMutableDictionary alloc] initWithCapacity:0];
 
 //    [self loadCurrentWeatherRSS];
     
@@ -165,7 +165,7 @@
                 if ( rangeUV.location == NSNotFound ) {
                     //return;
                     self.labelUV.text = @"UV - ";
-                    self.dictMoreInfo[@"UV"] = @"-";
+//                    self.dictMoreInfo[@"UV"] = @"-";
                 } else {
                     NSRange rangeUVNum = { rangeUV.location + rangeUV.length, 3};
                     strUV = [dataString substringWithRange: rangeUVNum];
@@ -399,7 +399,7 @@
                                         self.labelWarning.text = strLongText;
                                         
 //                                        NSDate *now = [NSDate date];
-                                
+//                                
 //                                        [[WKExtension sharedExtension] scheduleSnapshotRefreshWithPreferredDate:now userInfo:nil scheduledCompletion:^(NSError *error) {
 //                                            if (error != nil) {
 //                                                NSLog(@"scheduleSnapshotRefreshWithPreferredDate return error %@", error);
@@ -473,157 +473,6 @@
     return @"";
 }
 
-
-- (void) scheduleURLSession
-{
-    NSLog(@"Scheduling URL Session...");
-    NSURLSessionConfiguration *backgroundSessionConfig = [NSURLSessionConfiguration backgroundSessionConfigurationWithIdentifier:[NSUUID UUID].UUIDString ];
-    
-    backgroundSessionConfig.sessionSendsLaunchEvents = YES;
-    NSURLSession *backgroundSession = [NSURLSession sessionWithConfiguration:backgroundSessionConfig];
-    NSURLSessionDataTask *dataTask = [backgroundSession dataTaskWithURL:[NSURL URLWithString:kRSS_URL_CurrentWeather]];
-    [dataTask resume];
-}
-
-
-//
-- (void)handleBackgroundTasks:(NSSet<WKRefreshBackgroundTask *> *)backgroundTasks
-{
-    for (WKRefreshBackgroundTask * task in backgroundTasks) {
-        
-        if ([task isKindOfClass:[WKApplicationRefreshBackgroundTask class]]) {
-            // location update methods schedule as background task
-            [self scheduleURLSession];
-            savedTask = task;
-            //[backgroundTask setTaskCompleted];
-            
-        } else if ([task isKindOfClass:[WKSnapshotRefreshBackgroundTask class]]) {
-            WKSnapshotRefreshBackgroundTask *snapshotTask = (WKSnapshotRefreshBackgroundTask*)task;
-            [snapshotTask setTaskCompletedWithDefaultStateRestored:YES estimatedSnapshotExpiration:[NSDate distantFuture] userInfo:nil];
-            
-        } else if ([task isKindOfClass:[WKWatchConnectivityRefreshBackgroundTask class]]) {
-            WKWatchConnectivityRefreshBackgroundTask *backgroundTask = (WKWatchConnectivityRefreshBackgroundTask*)task;
-            [backgroundTask setTaskCompletedWithSnapshot: YES];
-            
-        } else if ([task isKindOfClass:[WKURLSessionRefreshBackgroundTask class]]) {
-            WKURLSessionRefreshBackgroundTask *urlSessionBackgroundTask = (WKURLSessionRefreshBackgroundTask*)task;
-            NSURLSessionConfiguration *backgroundConfigObject = [NSURLSessionConfiguration backgroundSessionConfigurationWithIdentifier:urlSessionBackgroundTask.sessionIdentifier ];
-            NSURLSession *backgroundSession = [NSURLSession sessionWithConfiguration:backgroundConfigObject delegate:self delegateQueue:nil];
-            NSLog(@"Rejoining session %@", backgroundSession);
-            
-            //let backgroundConfigObject = URLSessionConfiguration.background(withIdentifier: urlSessionTask.sessionIdentifier)
-            //let backgroundSession = URLSession(configuration: backgroundConfigObject, delegate: self, delegateQueue: nil)
-            //print("Rejoining session ", backgroundSession)
-            
-            
-            [urlSessionBackgroundTask setTaskCompletedWithSnapshot: YES];
-            
-        } else {
-            [task setTaskCompletedWithSnapshot: NO];
-        }
-    }
-}
-
-
-// MARK: URLSession handling
-
-
-- (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveData:(NSData *)data {
-    NSMutableData *responseData = self.responsesData[@(dataTask.taskIdentifier)];
-    if (!responseData) {
-        responseData = [NSMutableData dataWithData:data];
-        self.responsesData[@(dataTask.taskIdentifier)] = responseData;
-    } else {
-        [responseData appendData:data];
-    }
-}
-
-- (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didCompleteWithError:(NSError *)error {
-    
-    NSLog(@"URLSession: task: didCompleteWithError");
-    if (error) {
-        NSLog(@"URLSession: task: didCompleteWithError %@ failed: %@", task.originalRequest.URL, error);
-    }
-    
-    NSMutableData *responseData = self.responsesData[@(task.taskIdentifier)];
-    
-    if (responseData) {
-        
-        NSString *dataString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-        NSLog(@"responseData = %@", dataString);
-        
-        // handle response
-        
-        NSRange rangeAirTemp = [dataString rangeOfString:@"Air temperature : "];
-        
-        if ( rangeAirTemp.location == NSNotFound ) {
-            return;
-        } else {
-            NSRange rangeAirTempNum = { rangeAirTemp.location + rangeAirTemp.length, 2};
-            strTempDegree = [dataString substringWithRange: rangeAirTempNum];
-            //self.lblTempDegree.text = strTempDegree;
-            self.labelDegree.text = strTempDegree;
-            NSUserDefaults *userdefault = [NSUserDefaults standardUserDefaults];
-            [userdefault setObject:strTempDegree forKey:@"tempDegree"];
-        }
-        
-        //
-        
-        NSRange rangeRH = [dataString rangeOfString:@"Relative Humidity : "];
-        
-        if ( rangeRH.location == NSNotFound ) {
-            return;
-        } else {
-            NSRange rangeRHNum = { rangeRH.location + rangeRH.length, 2};
-            strHumidity = [dataString substringWithRange: rangeRHNum];
-            self.labelRH.text = [NSString stringWithFormat:@"RH %@%%", strHumidity];
-            //self.dictMoreInfo[@"RH"] = strHumidity;
-        }
-        
-        
-        //
-        NSRange rangeUV = [dataString rangeOfString:@"the mean UV Index recorded at King's Park : "];
-        
-        if ( rangeUV.location == NSNotFound ) {
-            //return;
-            self.labelUV.text = @"UV - ";
-            self.dictMoreInfo[@"UV"] = @"-";
-        } else {
-            NSRange rangeUVNum = { rangeUV.location + rangeUV.length, 3};
-            strUV = [dataString substringWithRange: rangeUVNum];
-            strUV = [strUV stringByReplacingOccurrencesOfString:@"<b" withString:@""];
-            self.labelUV.text = [NSString stringWithFormat:@"UV %@", strUV];
-            //self.dictMoreInfo[@"UV"] = strUV;
-        }
-        
-        //
-        NSRange rangeUpdateTime = [dataString rangeOfString:@"Bulletin updated at "];
-        
-        if ( rangeUpdateTime.location == NSNotFound ) {
-            return;
-        } else {
-            NSRange rangeUpdateTimeText = { rangeUpdateTime.location + rangeUpdateTime.length, 6};
-            strUpdateTime = [[dataString substringWithRange: rangeUpdateTimeText] stringByReplacingOccurrencesOfString:@"HKT " withString:@"  "];
-            //self.lblUpdateTime.text = strUpdateTime;
-            self.labelTime.text = strUpdateTime;
-        }
-        ////
-        
-        NSDate *now = [NSDate date];
-        [[WKExtension sharedExtension] scheduleSnapshotRefreshWithPreferredDate:now userInfo:nil scheduledCompletion:^(NSError *error) {
-            if (error != nil) {
-                NSLog(@"scheduleSnapshotRefreshWithPreferredDate return error %@", error);
-            }
-        }];
-        
-        
-        [self.responsesData removeObjectForKey:@(task.taskIdentifier)];
-        [self refreshComplications];
-        [savedTask setTaskCompletedWithSnapshot: YES];
-    } else {
-        NSLog(@"responseData is nil");
-    }
-}
 
 - (void)refreshComplications {
     CLKComplicationServer *server = [CLKComplicationServer sharedInstance];
