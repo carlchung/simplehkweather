@@ -47,17 +47,17 @@
 //                        completionHandler:^(NSData *data,
 //                                            NSURLResponse *response,
 //                                            NSError *error) {
-//                            
+//
 //                            NSString *dataString = [[NSString alloc] initWithData: data  encoding:NSUTF8StringEncoding];
-//                            
+//
 //                            NSLog(@"requestedUpdateDidBegin Complication 2 :\n%@",dataString);
-//                            
+//
 //                            //
 //                            NSRange rangeForecast = [dataString rangeOfString:@"Weather forecast for this afternoon and tonight:<br/>"];
-//                            
+//
 //                            if ( rangeForecast.location == NSNotFound ) {
 //                                rangeForecast = [dataString rangeOfString:@"Weather forecast for tonight and tomorrow:<br/>"];
-//                                
+//
 //                                if ( rangeForecast.location == NSNotFound ) {
 //                                    rangeForecast = [dataString rangeOfString:@":<br/>"];
 //                                    if ( rangeForecast.location == NSNotFound ) {
@@ -66,20 +66,20 @@
 //                                    }
 //                                }
 //                            }
-//                            
+//
 //                            long rangeLength = dataString.length - (rangeForecast.location + rangeForecast.length) - 5;
-//                            
+//
 //                            NSRange rangeForecastText = { rangeForecast.location + rangeForecast.length, rangeLength};
 //                            NSString *strForecast = [dataString substringWithRange: rangeForecastText];
 //                            self.weatherDesc = [[NSBundle mainBundle] localizedStringForKey:[self detectWeatherType:strForecast] value:@"" table:nil];
-//                            
-//                            
+//
+//
 //                        }] resume];
 //
 //            }] resume];
 //
 //
-//    
+//
 //}
 
 //- (void)requestedUpdateDidBegin {
@@ -180,12 +180,15 @@
                             
                             if ( rangeForecast.location == NSNotFound ) {
                                 rangeForecast = [dataString rangeOfString:@"Weather forecast for tonight and tomorrow:<br/>"];
-                                
                                 if ( rangeForecast.location == NSNotFound ) {
-                                    rangeForecast = [dataString rangeOfString:@":<br/>"];
+                                    rangeForecast = [dataString rangeOfString:@"Weather forecast for Hong Kong"];
+                                    
                                     if ( rangeForecast.location == NSNotFound ) {
-                                        NSLog(@"FORCAST NOT FOUND");
-                                        return;
+                                        rangeForecast = [dataString rangeOfString:@":<br/>"];
+                                        if ( rangeForecast.location == NSNotFound ) {
+                                            NSLog(@"FORCAST NOT FOUND");
+                                            return;
+                                        }
                                     }
                                 }
                             }
@@ -504,10 +507,14 @@
                                 rangeForecast = [dataString rangeOfString:@"Weather forecast for tonight and tomorrow:<br/>"];
                                 
                                 if ( rangeForecast.location == NSNotFound ) {
-                                    rangeForecast = [dataString rangeOfString:@":<br/>"];
+                                    rangeForecast = [dataString rangeOfString:@"Weather forecast for Hong Kong"];
+                                    
                                     if ( rangeForecast.location == NSNotFound ) {
-                                        NSLog(@"FORCAST NOT FOUND");
-                                        return;
+                                        rangeForecast = [dataString rangeOfString:@":<br/>"];
+                                        if ( rangeForecast.location == NSNotFound ) {
+                                            NSLog(@"FORCAST NOT FOUND");
+                                            return;
+                                        }
                                     }
                                 }
                             }

@@ -203,15 +203,17 @@
                             if ( rangeForecast.location == NSNotFound ) {
                                 rangeForecast = [dataString rangeOfString:@"Weather forecast for tonight and tomorrow:<br/>"];
                                 
-                                
                                 if ( rangeForecast.location == NSNotFound ) {
-                                    rangeForecast = [dataString rangeOfString:@":<br/>"];
+                                    rangeForecast = [dataString rangeOfString:@"Weather forecast for Hong Kong"];
+                                    
                                     if ( rangeForecast.location == NSNotFound ) {
-                                        NSLog(@"FORCAST NOT FOUND");
-                                        return;
+                                        rangeForecast = [dataString rangeOfString:@":<br/>"];
+                                        if ( rangeForecast.location == NSNotFound ) {
+                                            NSLog(@"FORCAST NOT FOUND");
+                                            return;
+                                        }
                                     }
                                 }
-                                
                                 
                             }
                             
